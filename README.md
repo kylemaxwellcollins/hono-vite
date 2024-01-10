@@ -45,13 +45,13 @@ Before you begin, ensure you have the following installed:
 3.  Create a .env file in the root directory and add the  
     following environment variables:
 
-        ```
-        PRISMIC_REPOSITORY_NAME=
-        PRISMIC_ACCESS_TOKEN=
-        PRISMIC_CLIENT_ID=
-        PRISMIC_CLIENT_SECRET=
-        PRISMIC_ENDPOINT=
-        ```
+    ```
+    PRISMIC_REPOSITORY_NAME=
+    PRISMIC_ACCESS_TOKEN=
+    PRISMIC_CLIENT_ID=
+    PRISMIC_CLIENT_SECRET=
+    PRISMIC_ENDPOINT=
+    ```
 
 4.  Run the development server
     ```sh
