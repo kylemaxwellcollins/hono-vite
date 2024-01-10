@@ -1,0 +1,13 @@
+.header {
+  display: flex;
+  align-items: center;
+  padding: 2rem;
+
+  &__home {
+    margin-right: 1rem;
+  }
+
+  &__logo {
+    margin-right: 2rem;
+  }
+}
