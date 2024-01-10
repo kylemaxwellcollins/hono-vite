@@ -33,6 +33,8 @@ class Page {
     for (const key in this.selector.children) {
       this.children[key] = document.querySelector(this.selector.children[key]);
     }
+
+    console.log("Page.initialize()", this.id, this.parent, this.children);
   }
 }
 
