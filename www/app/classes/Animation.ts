@@ -1,17 +1,15 @@
-interface Animation {
-  element: HTMLElement;
-  observer: IntersectionObserver;
-  options: IntersectionObserverInit;
-  callback: IntersectionObserverCallback;
-}
-
 class Animation {
+  element: HTMLElement;
+  observer!: IntersectionObserver;
+  options!: IntersectionObserverInit;
+  callback!: IntersectionObserverCallback;
+
   constructor(element: HTMLElement) {
     this.element = element;
   }
 
   createObserver() {
-    this.observer = new IntersectionObserver((entries, observer) => {
+    this.observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           console.log("animatein");

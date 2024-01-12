@@ -19,6 +19,10 @@ export default defineConfig({
     },
   },
 
+  css: {
+    devSourcemap: true, // this one
+  },
+
   publicDir: "www/public",
 
   plugins: [

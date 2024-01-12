@@ -2,10 +2,12 @@ import Base from "../../components/Base/Base";
 
 const FourOhFour = () => {
   return (
-    <Base title="Not Found" template="404">
+    <Base title="Not Found" template="fourOhFour">
       <div class="fourOhFour">
-        <h1>404</h1>
-        <p>Page not found</p>
+        <div class="wrapper">
+          <h1>404</h1>
+          <p>Page not found</p>
+        </div>
       </div>
     </Base>
   );

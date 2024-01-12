@@ -22,8 +22,10 @@ const About = ({ metadata, content }: Props) => {
       template={"about"}
     >
       <div class="about">
-        <h1 class="about__title">{metadata.title}</h1>
-        <p class="about__description">{content.copy}</p>
+        <div class="wrapper">
+          <h1 class="about__title">{metadata.title}</h1>
+          <p class="about__description">{content.copy}</p>
+        </div>
       </div>
     </Base>
   );

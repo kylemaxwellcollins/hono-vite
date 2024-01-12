@@ -1,58 +1,48 @@
 import gsap from "gsap";
 
-interface Page {
+class Page {
   id: string;
   selector: {
-    parent?: any;
-    children?: any;
+    element?: any;
+    elements?: any;
   };
 
-  parent?: any;
-  children?: any;
-}
+  element?: any;
+  elements?: any;
 
-class Page {
-  constructor({
-    id,
-    parent,
-    children,
-  }: {
-    id: string;
-    parent?: any;
-    children?: any;
-  }) {
+  constructor({ id, element, elements }: PageArgs) {
     this.id = id;
     this.selector = {
-      parent,
-      children: { ...children },
+      element,
+      elements: { ...elements },
     };
   }
 
   initialize() {
-    this.parent = document.querySelector(this.selector.parent);
-    this.children = {};
+    this.element = document.querySelector(this.selector.element);
+    this.elements = {};
 
-    for (const key in this.selector.children) {
+    for (const key in this.selector.elements) {
       if (
-        this.selector.children[key] instanceof HTMLElement ||
-        this.selector.children[key] instanceof NodeList ||
-        Array.isArray(this.selector.children[key])
+        this.selector.elements[key] instanceof HTMLElement ||
+        this.selector.elements[key] instanceof NodeList ||
+        Array.isArray(this.selector.elements[key])
       ) {
-        this.children[key] = this.selector.children[key];
+        this.elements[key] = this.selector.elements[key];
       } else {
         // First check if there are multiple elements
-        this.children[key] = document.querySelectorAll(
-          this.selector.children[key]
+        this.elements[key] = document.querySelectorAll(
+          this.selector.elements[key]
         );
 
         // Check if there are no elements or only one element
-        if (this.children[key].length === 0) {
+        if (this.elements[key].length === 0) {
           // if there are no elements, set it to null
-          this.children[key] = null;
-        } else if (this.children[key].length === 1) {
+          this.elements[key] = null;
+        } else if (this.elements[key].length === 1) {
           // if there is only one element, don't make it a node list
-          this.children[key] = document.querySelector(
-            this.selector.children[key]
+          this.elements[key] = document.querySelector(
+            this.selector.elements[key]
           );
         }
       }
@@ -61,7 +51,7 @@ class Page {
 
   show() {
     return new Promise((resolve) => {
-      gsap.from(this.parent, {
+      gsap.from(this.element, {
         autoAlpha: 0,
         duration: 0.4,
         onComplete: resolve,
@@ -71,7 +61,7 @@ class Page {
 
   hide() {
     return new Promise((resolve) => {
-      gsap.to(this.parent, {
+      gsap.to(this.element, {
         autoAlpha: 0,
         duration: 0.4,
         onComplete: resolve,

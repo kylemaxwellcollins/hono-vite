@@ -22,8 +22,10 @@ const Home = ({ metadata, content }: Props) => {
       template="home"
     >
       <div class="home">
-        <h1 class="home__title">{metadata.title}</h1>
-        <p class="home__description">{content.copy}</p>
+        <div class="wrapper">
+          <h1 class="home__title">{metadata.title}</h1>
+          <p class="home__description">{content.copy}</p>
+        </div>
       </div>
     </Base>
   );
