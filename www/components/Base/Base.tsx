@@ -27,9 +27,11 @@ const Base = (props: Props) => {
           <script type="module" src="/@vite/client"></script>
         )}
       </head>
-      <body data-template={props.template}>
+      <body>
         {<Header />}
-        <main>{props.children}</main>
+        <main class="content" data-template={props.template}>
+          {props.children}
+        </main>
         {<Footer />}
 
         {isProd ? (

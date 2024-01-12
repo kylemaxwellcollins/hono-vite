@@ -4,12 +4,17 @@ class About extends Page {
   constructor() {
     super({
       id: "about",
-      element: ".about",
-      elements: {
+      parent: ".about",
+      children: {
         title: ".about__title",
         description: ".about__description",
       },
     });
+  }
+
+  initialize() {
+    // Call the initialize method of the parent class
+    super.initialize();
   }
 }
 
